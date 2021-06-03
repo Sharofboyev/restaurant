@@ -8,6 +8,8 @@ const manager = require("./routers/manager");
 const waiter = require("./routers/waiter");
 const auth = require("./routers/auth");
 const config = require("config");
+const users = require("./models/users.model");
+
 
 db.connect()
   .then(() => {
@@ -27,6 +29,7 @@ app.use(manager);
 app.use(client);
 app.use(waiter);
 app.use(auth);
+app.use(users);
 app.use(error);
 
 app.listen(3000, () => {
